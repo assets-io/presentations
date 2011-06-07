@@ -1,4 +1,4 @@
-!SLIDE
+!SLIDE subsection
 # Welcome #
 
 !SLIDE bullets incremental

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+node `bundle show showoff 2>/dev/null`/presenter.js

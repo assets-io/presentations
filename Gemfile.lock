@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/badboy/showoff.git
-  revision: 0f39db53768140d7fbb48891c822ed501c41a98e
+  remote: https://github.com/martinrehfeld/showoff.git
+  revision: 06433fc57369289d16833f13fc7a65948120ccd3
   branch: presenter-view
   specs:
     showoff (0.4.2)

@@ -1,13 +1,14 @@
-!SLIDE subsection
-# Welcome #
+!SLIDE
+# Lessons Learned Building Assets.io
+## Martin Rehfeld aka @klickmich
+## 16/05/2011 @ ScotRUG, Edinburgh
+
+!SLIDE center smaller
+# Ruby User Group Berlin greets ScotRUG
+![The Ruby User Group Berlin](rug_b.jpg)
 
 !SLIDE bullets incremental
-# Bullet Points #
-
-* first point
-* second point
-* third point
-
-<p class="notes">
-These are my notes for the second slide!
-</p>
+# Three Premieres
+* First time speaker exchange
+* W14g
+* Assets.io

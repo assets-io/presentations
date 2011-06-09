@@ -10,6 +10,10 @@ Do a fun demo. Show a few nice selections. Tweet along.
 
 !SLIDE
 # ZOMG PERFORMANCE MATTERS
+* need a hosting solution that scales (global audience)
+* some CDN experience with Cloudfront
+* origin server would serve w14g assets (EC2)
+  - manual asset management + cache invalidation
 
 !SLIDE
 # JavaScript *App*
@@ -49,18 +53,3 @@ Works nice, but was a lot of effort to get to this point.
 Asset management is still hard, so hard that you usually don't do it unless
 you absolutely have to. Rails' asset pipeline will be a game changer, though
 </p>
-
-<!-- notes from Thomas that need to be incorporated into additional or existing slides/notes -->
-!SLIDE
-### Notes from Thomas
-#### Side project (learning Twitter API, Backbone.js, ...)
-* need a hosting solution that scales (global audience)
-* some CDN experience with Cloudfront
-* origin server would serve w14g assets (EC2)
-  - manual asset management + cache invalidation
-* asset pipeline (what if...)
-* minify + package automatically through
-  - origin server
-  - proper cache busting
-  - long expires header + gzip compression
-* why not make it a scalable component? (intermediate server)

@@ -7,12 +7,20 @@ That was about the time when my pal Thomas came to me with the idea of building
 asset packaging and delivery as a service. Having felt the pain myself,
 I was immediately excited about it.
 
+!SLIDE
+# The birth of Assets.io
+* minify + package automatically through
+  - origin server
+  - proper cache busting
+  - long expires header + gzip compression
+* why not make it a scalable component? (intermediate server)
+
 !SLIDE smaller light-on-dark dr-evil
 # What if we could do this so it just works?
 ![background](dr-evil.jpg "Dr. Evil")
 
 !SLIDE center
-# How would that work?
+# How again would that work?
 ![Assets.io :: How it works](howitworks.png)
 
 <!-- TODO: structure the rest of the content into slides and transform into

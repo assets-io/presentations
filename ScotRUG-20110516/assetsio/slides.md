@@ -8,7 +8,7 @@ asset packaging and delivery as a service. Having felt the pain myself,
 I was immediately excited about it.
 
 !SLIDE smaller light-on-dark dr-evil
-# What if we could to do this so it just works?
+# What if we could do this so it just works?
 ![background](dr-evil.jpg "Dr. Evil")
 
 !SLIDE center

@@ -5,7 +5,7 @@
 # Wrapping up
 * Was a lot more challenging than it looked at first glance
 * Working prototype < 20% effort, but...
-* Addressable is grand (`+`) -- Ruby's high level abstractions
+* Addressable is grand (+) -- Ruby's high level abstractions
 * CoffeeScript makes JS bearable for Rubyists (probably also for Erlang, Scala
   and Python geeks)
 * Totally worth it: already rewarding -- go out and make stuff

@@ -1,5 +1,5 @@
 !SLIDE subsection
-# Assets.io #
+# Assets.io
 
 !SLIDE
 # The birth of Assets.io
@@ -7,10 +7,9 @@ That was about the time when my pal Thomas came to me with the idea of building
 asset packaging and delivery as a service. Having felt the pain myself,
 I was immediately excited about it.
 
-!SLIDE center smaller
+!SLIDE smaller light-on-dark dr-evil
 # What if we could to do this so it just works?
-## Apple style :-)
-![Dr. Evil](dr-evil-linux.jpg)
+![background](dr-evil.jpg "Dr. Evil")
 
 !SLIDE center
 # How would that work?

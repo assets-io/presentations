@@ -3,9 +3,9 @@
 ## Martin Rehfeld aka @klickmich
 ## 16/05/2011 @ ScotRUG, Edinburgh
 
-!SLIDE center smaller
+!SLIDE light-on-dark
 # Ruby User Group Berlin greets ScotRUG
-![The Ruby User Group Berlin](rug_b.jpg)
+![background](rug_b.jpg "The Ruby User Group Berlin")
 
 !SLIDE bullets incremental
 # Three Premieres

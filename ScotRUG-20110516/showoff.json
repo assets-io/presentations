@@ -1,8 +1,8 @@
 { "name": "Lessons Learned Building Assets.io",
   "sections": [
-    {"section":"01-intro"},
-    {"section":"02-w14g"},
-    {"section":"03-assetsio"},
-    {"section":"04-outro"}
+    {"section":"intro"},
+    {"section":"w14g"},
+    {"section":"assetsio"},
+    {"section":"outro"}
   ]
 }

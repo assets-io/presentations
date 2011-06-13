@@ -87,5 +87,6 @@ I was immediately excited about it.
 
 !SLIDE
 # What's next?
+* Integration into Rails 3.1 asset pipeline
 * Images (Image optimization)
 * CSS sprites

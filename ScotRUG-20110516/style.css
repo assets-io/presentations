@@ -104,8 +104,8 @@ body.fullScreen {
 }
 
 /* Title sizes */
-h1 { font-size: 48px; margin:0; }
-h2 { font-size: 36px; margin:0; }
+h1 { font-size: 48px; margin:0; text-align:center; }
+h2 { font-size: 24px; margin:0; text-align:center; }
 h3 { font-size: 24px; margin:0; }
 
 /* Slide style */
@@ -132,11 +132,10 @@ h3 { font-size: 24px; margin:0; }
 }
 
 /* Default widths */
-#preso h2,
 #preso ul,
 #preso code {
     display: block;
-    width: 580px;
+    width: 700px;
     margin: 0 auto;
     text-align: left;
 }

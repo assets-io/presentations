@@ -1,17 +1,18 @@
 !SLIDE assetsio_1
 ![background](assetsio_1.jpg "Assets.io")
 
-!SLIDE
-# The birth of Assets.io
-* minify + package automatically through
-  - origin server
-  - proper cache busting
-  - long expires header + gzip compression
-* why not make it a reusable component? (intermediate server)
-
 !SLIDE smaller light-on-dark dr-evil
 # What if we could do this so it just works?
 ![background](dr-evil.jpg "Dr. Evil")
+
+!SLIDE incremental
+# The birth of Assets.io
+## The origin server could...
+* minify and package automatically
+* provide easy cache busting
+* send long expires headers
+* offer gzip compression
+* be reusable component / intermediate server
 
 !SLIDE
 # How again would that work?

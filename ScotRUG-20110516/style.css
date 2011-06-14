@@ -174,3 +174,15 @@ h3 { font-size: 24px; }
   padding: 0 30px;
 }
 
+#preso .effort h3 {
+  top: 730px;
+  left: 700px;
+  font-size: 0.7em;
+}
+#preso .effort h3 a,
+#preso .effort h3 a:visited,
+#preso .effort h3 a:link {
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+}

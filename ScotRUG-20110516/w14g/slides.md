@@ -44,8 +44,9 @@ Had to think about structuring the code.
   projects?
 </p>
 
-!SLIDE center
-# TODO: insert picture showing "lots of effort"
+!SLIDE light-on-dark effort
+![background](effort.jpg "Lot's of effort")
+### <http://www.flickr.com/photos/unices/4022007384/>
 
 <p class="notes">
 Works nice, but was a lot of effort to get to this point.

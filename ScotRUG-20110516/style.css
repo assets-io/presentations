@@ -1,10 +1,11 @@
 body {
-    font-family: "helvetica neue","helvetica","lucida grande",arial,sans-serif;
-    color: #fff;
-    background-color: #888;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    background:url('/image/img/main_background.jpg') #CCC;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
     font-size: 18px;
+    text-shadow: rgba(255, 255, 255, 0.699219) 1px 1px 1px;
 }
 
 body.fullScreen {
@@ -24,7 +25,7 @@ body.fullScreen {
 #preso a,
 #preso a:visited,
 #preso a:link {
-    color: #44a;
+    color: #333;
     font-weight: bold;
     text-decoration: none;
     border-bottom: 2px solid #44a;
@@ -39,7 +40,7 @@ body.fullScreen {
 }
 #preso .subsection h1 {
     color: #fff;
-    background-color: #000;
+    background-color: #333;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -49,13 +50,14 @@ body.fullScreen {
     filter:alpha(opacity=70);
     -moz-opacity:0.7;
     -khtml-opacity: 0.7;
+    text-shadow:none;
 }
 
 #preso .light-on-dark h1,
 #preso .light-on-dark h3 {
     position: absolute;
     color: #fff;
-    background-color: #000;
+    background-color: #333;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -66,6 +68,7 @@ body.fullScreen {
     -moz-opacity:0.7;
     -khtml-opacity: 0.7;
     left: 0.5em;
+    text-shadow:none;
 }
 #preso .light-on-dark h1 {
     top: 50px;
@@ -104,8 +107,8 @@ body.fullScreen {
 }
 
 /* Title sizes */
-h1 { font-size: 48px; color: #fff;}
-h2 { font-size: 36px; color: #ddd;}
+h1 { font-size: 48px; }
+h2 { font-size: 36px; }
 h3 { font-size: 24px; }
 
 /* Slide style */
@@ -165,5 +168,9 @@ h3 { font-size: 24px; }
 #preso .dr-evil h1 {
   top: 50%;
   width: 50%;
+}
+
+.content {
+  padding: 0 30px;
 }
 

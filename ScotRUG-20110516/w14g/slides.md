@@ -1,22 +1,33 @@
-!SLIDE subsection
-# W14g
+!SLIDE incremental
+# So what is W14g?
+* Webapp built on top of the Twitter API
+* Data visualization experiment
+* Learning project
+* 100% Buzzword compliant
+
+!SLIDE incremental
+# JavaScript *App*
+* Based on *Backbone.js* (Single page JS App)
+* Written entirely in *Coffeescript*
+* *HTML5* / *CSS3* Animations
+
+!SLIDE
+# DEMO
 
 <p class="notes">
 Do a fun demo. Show a few nice selections. Tweet along.
 </p>
 
-!SLIDE
-# Figured: This could go viral
+!SLIDE w14g_2
+# Figured: This could go viral!
+![background](screaming-beatles-fans.jpg)
 
-!SLIDE
+!SLIDE incremental
 # ZOMG PERFORMANCE MATTERS
-* need a hosting solution that scales (global audience)
-* some CDN experience with Cloudfront
-* origin server would serve w14g assets (EC2)
-  - manual asset management + cache invalidation
-
-!SLIDE
-# JavaScript *App*
+## What if we built it and they come?
+* Need a hosting solution that scales
+* Content Delivery network for a global audience (CF)
+* Origin server to serve w14g assets (EC2)
 
 <p class="notes">
 TODO: insert screenshot of resource view or similar to show the number of JS
@@ -28,16 +39,17 @@ Had to think about structuring the code.
 
 !SLIDE bullets incremental
 # Aside: Web Performance 101
-* less requests -> packaging
-* no requests are better than few requests -> caching (get the headers right)
-* small assets -> minification + gzip compression
-* fast delivery -> CDN
+* Fewer requests through packaging (concatenation)
+* Save whole requests by proper caching with correct headers
+* Smaller assets save bandwidth with minification and gzip compression
+* Fast delivery via CDN
 
 !SLIDE bullets incremental
 # Solving the asset problem, take one
 * Jammit
 * Middleman
 * Development and build environments
+* Manual asset management + cache invalidation
 
 <p class="notes">
 * How many of you have used asset packaging solutions with their Rails

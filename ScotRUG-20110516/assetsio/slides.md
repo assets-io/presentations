@@ -1,11 +1,5 @@
-!SLIDE subsection
-# Assets.io
-
-!SLIDE
-# The birth of Assets.io
-That was about the time when my pal Thomas came to me with the idea of building
-asset packaging and delivery as a service. Having felt the pain myself,
-I was immediately excited about it.
+!SLIDE assetsio_1
+![background](assetsio_1.jpg "Assets.io")
 
 !SLIDE
 # The birth of Assets.io
@@ -13,7 +7,7 @@ I was immediately excited about it.
   - origin server
   - proper cache busting
   - long expires header + gzip compression
-* why not make it a scalable component? (intermediate server)
+* why not make it a reusable component? (intermediate server)
 
 !SLIDE smaller light-on-dark dr-evil
 # What if we could do this so it just works?
@@ -22,6 +16,22 @@ I was immediately excited about it.
 !SLIDE
 # How again would that work?
 ![Assets.io :: How it works](howitworks.png)
+
+!SLIDE commandline code incremental
+# How to integrate
+    <head>
+      <title>My website</title>
+
+      <!-- Stylesheets //-->
+      <link rel="stylesheet" href="/css/base.css" />
+      <link rel="stylesheet" href="/css/navigation.css" />
+
+      <!-- Javascript //-->
+      <script src="/js/jquery.js"></script>
+      <script src="/js/plugin.js"></script>
+      <script src="/js/site.js"></script>
+
+    </head>
 
 <!-- TODO: structure the rest of the content into slides and transform into
            problem/solution style-->

@@ -1,4 +1,5 @@
-!SLIDE assetsio_1
+!SLIDE assetsio_1 light-on-dark
+# Enter Assets.io
 ![background](assetsio_1.jpg "Assets.io")
 
 !SLIDE incremental
@@ -8,9 +9,10 @@
 * provide easy cache busting
 * send long expires headers
 * offer gzip compression
+* deliver through Content Delivery Network
 
 !SLIDE smaller light-on-dark dr-evil
-# What if we could do this so it just works?
+# What if we could make this just work?<br>As in EASY!
 ![background](dr-evil.jpg "Dr. Evil")
 
 !SLIDE
@@ -80,9 +82,9 @@
 # JSON asset request
     @@@ javascript
     {
-      "r": "b6",
-      "a": "your-account-id",
-      "s": [
+      "r": "b6",               // API release
+      "a": "your-account-id",  // CF distribution
+      "s": [                   // FQDN sources
         "http://example.org/css/base.css",
         "http://example.org/css/navigation.css"
       ]
@@ -90,6 +92,10 @@
 * note: CloudFront ignores any URL query strings
 * thus this information had be encoded into the path!
 * it is the operating instruction for the backend
+
+<p class="notes">
+JSON offers very good flexibility and future extensibility
+</p>
 
 !SLIDE
 # What about cache busting?
@@ -99,34 +105,35 @@
 ## or per asset package
     assets.js('/js/whatever.js', {version: 1});
 
-* changing the version will immediate bust the cache
+* changing the version immediately busts the cache
 
+!SLIDE incremental
+# Next challenge: Fallback
+    As a user of Assets.io
+    When anything goes wrong on their end
+    I still want to have a working website
 
-<!-- TODO: structure the rest of the content into slides and transform into
-           problem/solution style-->
-!SLIDE
-# JS API
+* the JS API needs to check if the assets arrived
+  - timeout!
+* if not, issue individual requests for each part
+  - slower, but no broken site
 
-## Hurdle#4: Request error results in unstyled w/o JS
-* Solution: Fallback mechanism that tests for asset availability
-
-## Hurdle#5: API Loading / Versioning
-* Solution. Disting versioning so we can use long expires headers
-
-!SLIDE
+!SLIDE subsection
 # In da Cloud
-## Hurdle#2: Passing parameters through CF not possible
-* Solution: Base64 encoded JSON object as asset identifier
+<!-- TODO: maybe we can describe the hosting setup here... -->
 
-## Hurdle#3: Cache invalidation takes too long
-* Solution: Cache busting with iterating (numerical) ID or date
+!SLIDE subsection
+# Teh Backend: Ruby time
+
+!SLIDE request-flow
+# Request Flow & Timing
+![Request Flow](request-flow.png)
+<!-- TODO: while an image is nice, it does not add much value here -->
 
 !SLIDE
-# Teh Backend -- Ruby time
-* How to maximize throughput?
-  - Parallelize fetching from customer's server (em-http-request)
-  - Take on new requests while waiting for the assets (async response)
-<!-- could use an image, huh? -->
+# Two sides for maximizing throughput
+* Take on new requests while waiting for the assets
+* Parallelize fetching from customer's server
 
 !SLIDE
 # Evented Web App servers

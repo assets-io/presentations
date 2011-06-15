@@ -1,3 +1,6 @@
+!SLIDE subsection center
+# W14g
+
 !SLIDE incremental
 # So what is W14g?
 * Webapp built on top of the Twitter API
@@ -24,11 +27,10 @@ Do a fun demo. Show a few nice selections. Tweet along.
 ![background](screaming-beatles-fans.jpg)
 
 !SLIDE incremental
-# What if we built it and they come?
+# What if I built it and they come?
 ## ZOMG PERFORMANCE MATTERS
 * Need a hosting solution that scales
 * Content Delivery network for a global audience (CF)
-* Origin server to serve w14g assets (EC2)
 
 <p class="notes">
 TODO: insert screenshot of resource view or similar to show the number of JS
@@ -41,17 +43,17 @@ Had to think about structuring the code.
 !SLIDE bullets incremental
 # Aside: Web Performance 101
 * Fewer requests through packaging (concatenation)
-* Save whole requests by proper caching
+* Save requests completely by proper caching
   - it's in the headers
 * Smaller assets save bandwidth
   - minification and gzip compression
 * Fast delivery via CDN
 
-!SLIDE bullets incremental
+!SLIDE incremental
 # Solving the asset problem, take one
-* Jammit
-* Middleman
-* Development and build environments
+* Middleman <https://github.com/tdreyno/middleman>
+* Jammit <http://documentcloud.github.com/jammit/>
+* Custom Development and build environments
 * Manual asset management + cache invalidation
 
 <p class="notes">

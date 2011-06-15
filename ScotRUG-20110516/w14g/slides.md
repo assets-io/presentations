@@ -11,14 +11,14 @@
 * Written entirely in *Coffeescript*
 * *HTML5* / *CSS3* Animations
 
-!SLIDE
-# DEMO
+!SLIDE subsection
+# Demo
 
 <p class="notes">
 Do a fun demo. Show a few nice selections. Tweet along.
 </p>
 
-!SLIDE w14g_2
+!SLIDE light-on-dark
 # Figured: This could go viral!
 ![background](screaming-beatles-fans.jpg)
 
@@ -57,6 +57,7 @@ Had to think about structuring the code.
 </p>
 
 !SLIDE light-on-dark effort
+# Feels like...
 ![background](effort.jpg "Lots of effort")
 ### <http://www.flickr.com/photos/unices/4022007384/>
 

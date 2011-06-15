@@ -32,7 +32,11 @@ body.fullScreen {
 }
 
 #preso h1 {
-  margin-top:1.5em;
+    margin-top:1.5em;
+}
+
+#preso .content.subsection {
+    background-color: transparent;
 }
 
 #preso .subsection h1 {
@@ -163,29 +167,24 @@ h3 { font-size: 24px; margin:0; }
 
 /* slide specific styles */
 #preso .dr-evil h1 {
-  top: 50%;
-  width: 50%;
+    top: 50%;
+    left: 40%;
+    width: 50%;
 }
 
 .content {
-  padding: 0 30px;
+    padding: 0 30px;
 }
 
 #preso .effort h3 {
-  top: 730px;
-  left: 700px;
-  font-size: 0.7em;
+    top: 730px;
+    left: 660px;
+    font-size: 0.7em;
 }
 #preso .effort h3 a,
 #preso .effort h3 a:visited,
 #preso .effort h3 a:link {
-  color: #fff;
-  text-decoration: none;
-  border: 0;
-}
-
-.w14g_2 h1 {
-  font-weight:bold;
-  text-shadow: rgba(0, 0, 0, 0.699219) 1px 1px 1px;
-  color:#fff;
+    color: #fff;
+    text-decoration: none;
+    border: 0;
 }

@@ -18,16 +18,17 @@
 # How again would that work?
 ![Assets.io :: How it works](howitworks.png)
 
-!SLIDE commandline code incremental
+!SLIDE code
 # How to integrate
+    @@@ html
     <head>
       <title>My website</title>
 
-      <!-- Stylesheets //-->
-      <link rel="stylesheet" href="/css/base.css" />
-      <link rel="stylesheet" href="/css/navigation.css" />
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="/css/base.css">
+      <link rel="stylesheet" href="/css/navigation.css">
 
-      <!-- Javascript //-->
+      <!-- Javascript -->
       <script src="/js/jquery.js"></script>
       <script src="/js/plugin.js"></script>
       <script src="/js/site.js"></script>

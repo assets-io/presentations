@@ -157,10 +157,13 @@ h3 { font-size: 24px; margin:0; }
 }
 #preso ul > li:before { content: "» "; }
 
+#preso ul > li > ul {
+    margin-top: 0;
+}
+
 #preso ul > li > ul > li {
-    margin-left: 1em;
+    margin-left: 0.7em;
     margin-bottom: 0.2em;
-    font-size: 0.8em;
 }
 #preso ul > li > ul > li:before { content: "- "; }
 

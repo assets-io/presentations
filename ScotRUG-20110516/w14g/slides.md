@@ -40,8 +40,10 @@ Had to think about structuring the code.
 !SLIDE bullets incremental
 # Aside: Web Performance 101
 * Fewer requests through packaging (concatenation)
-* Save whole requests by proper caching with correct headers
-* Smaller assets save bandwidth with minification and gzip compression
+* Save whole requests by proper caching
+  - it's in the headers
+* Smaller assets save bandwidth
+  - minification and gzip compression
 * Fast delivery via CDN
 
 !SLIDE bullets incremental

@@ -8,7 +8,7 @@
 * Addressable is grand (+) -- Ruby's high level abstractions
 * CoffeeScript makes JS bearable for Rubyists (probably also for Erlang, Scala
   and Python geeks)
-* Totally worth it: already rewarding -- go out and make stuff
+* Totally worth it: already rewarding - go out and make stuff
 
 !SLIDE
 # The End I
@@ -33,3 +33,6 @@ Martin Rehfeld
 <http://www.w14g.com>
 
 <http://www.assets.io>
+
+Please rate this talk - I need your feedback!<br>
+<http://spkr8.com/t/7771>

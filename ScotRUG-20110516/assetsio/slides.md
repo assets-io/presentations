@@ -60,6 +60,7 @@
 * How to maximize throughput?
   - Parallelize fetching from customer's server (em-http-request)
   - Take on new requests while waiting for the assets (async response)
+<!-- could use an image, huh? -->
 
 !SLIDE
 # Evented Web App servers
@@ -68,6 +69,7 @@
   - Rainbows
   - Good old Thin
 * Settled for Thin (then with Heroku as possible hosting environment in mind)
+<!-- show code, how does it look in Goliath/em-synchrony vs. Thin -->
 
 !SLIDE
 # Parallel asset fetching
@@ -87,6 +89,7 @@
 # Async Response
 * throw vs. dummy response
 * research: AsyncResponse class (seen in @methodmissings's talk @ Euruko)
+<!-- show code -->
 
 !SLIDE
 # Hosting

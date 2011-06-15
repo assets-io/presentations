@@ -57,7 +57,7 @@ Had to think about structuring the code.
 </p>
 
 !SLIDE light-on-dark effort
-![background](effort.jpg "Lot's of effort")
+![background](effort.jpg "Lots of effort")
 ### <http://www.flickr.com/photos/unices/4022007384/>
 
 <p class="notes">

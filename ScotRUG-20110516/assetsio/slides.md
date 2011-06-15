@@ -1,25 +1,28 @@
 !SLIDE assetsio_1
 ![background](assetsio_1.jpg "Assets.io")
 
-!SLIDE smaller light-on-dark dr-evil
-# What if we could do this so it just works?
-![background](dr-evil.jpg "Dr. Evil")
-
 !SLIDE incremental
 # The birth of Assets.io
-## The origin server could...
+## Idea for a service that would...
 * minify and package automatically
 * provide easy cache busting
 * send long expires headers
 * offer gzip compression
-* be reusable component / intermediate server
+
+!SLIDE smaller light-on-dark dr-evil
+# What if we could do this so it just works?
+![background](dr-evil.jpg "Dr. Evil")
 
 !SLIDE
-# How again would that work?
+# Right, but what would that look like?
 ![Assets.io :: How it works](howitworks.png)
 
-!SLIDE code
+!SLIDE subsection
+# Let's start in the browser
+
+!SLIDE
 # How to integrate
+## a typical website head
     @@@ html
     <head>
       <title>My website</title>
@@ -35,12 +38,74 @@
 
     </head>
 
+!SLIDE incremental
+# How to integrate
+## rewritten to use Assets.io
+    @@@ html
+    <head>
+      <title>My website</title>
+
+      <script src="http://api.assets.io/b6/"></script>
+
+      <script>
+        assets.account('your-account-id');
+
+        <!-- Stylesheets -->
+        assets.css('/css/base.css /css/navigation.css');
+
+        <!-- Javascript -->
+        assets.js('/js/jquery.js /js/plugin.js /js/site.js');
+      </script>
+
+    </head>
+* dynamic insertion of tags via loader API
+* packages defined *within* source code
+
+!SLIDE incremental
+# Here's what gets loaded
+    http://your-account-id.cloudfront.net/eyJyIjoiYjYiLCJhIjoieW91 \
+          ci1hY2NvdW50LWlkIiwiaCI6IiIsInMiOlsiaHR0cDovL2V4YW1wbGUu \
+          b3JnL2Nzcy9iYXNlLmNzcyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jc3Mv \
+          bmF2aWdhdGlvbi5jc3MiXX0=.css
+
+    http://your-account-id.cloudfront.net/eyJyIjoiYjYiLCJhIjoieW91 \
+          ci1hY2NvdW50LWlkIiwiaCI6IiIsInMiOlsiaHR0cDovL2V4YW1wbGUu \
+          b3JnL2pzL2pxdWVyeS5qcyIsImh0dHA6Ly9leGFtcGxlLm9yZy9qcy9w \
+          bHVnaW4uanMiLCJodHRwOi8vZXhhbXBsZS5vcmcvanMvc2l0ZS5qcyJd \
+          fQ==.js
+* request to Amazon's CloudFront CDN
+* the gibberish is Base64 encoded JSON
+
+!SLIDE center
+# JSON asset request
+    @@@ javascript
+    {
+      "r": "b6",
+      "a": "your-account-id",
+      "s": [
+        "http://example.org/css/base.css",
+        "http://example.org/css/navigation.css"
+      ]
+    }
+* note: CloudFront ignores any URL query strings
+* thus this information had be encoded into the path!
+* it is the operating instruction for the backend
+
+!SLIDE
+# What about cache busting?
+## assign a version globally (think: Git SHA)
+    assets.version('6091d765');
+
+## or per asset package
+    assets.js('/js/whatever.js', {version: 1});
+
+* changing the version will immediate bust the cache
+
+
 <!-- TODO: structure the rest of the content into slides and transform into
            problem/solution style-->
 !SLIDE
 # JS API
-## Hurdle#1: Javascript parsing when document loaded too late
-* Solution: Script tags have to be written into the document
 
 ## Hurdle#4: Request error results in unstyled w/o JS
 * Solution: Fallback mechanism that tests for asset availability

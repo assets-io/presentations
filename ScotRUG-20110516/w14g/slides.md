@@ -11,8 +11,9 @@
 * Written entirely in *Coffeescript*
 * *HTML5* / *CSS3* Animations
 
-!SLIDE subsection
+!SLIDE subsection center
 # Demo
+<http://www.w14g.com>
 
 <p class="notes">
 Do a fun demo. Show a few nice selections. Tweet along.
@@ -23,8 +24,8 @@ Do a fun demo. Show a few nice selections. Tweet along.
 ![background](screaming-beatles-fans.jpg)
 
 !SLIDE incremental
-# ZOMG PERFORMANCE MATTERS
-## What if we built it and they come?
+# What if we built it and they come?
+## ZOMG PERFORMANCE MATTERS
 * Need a hosting solution that scales
 * Content Delivery network for a global audience (CF)
 * Origin server to serve w14g assets (EC2)

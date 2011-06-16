@@ -31,11 +31,13 @@ Do a fun demo. Show a few nice selections. Tweet along.
 ## ZOMG PERFORMANCE MATTERS
 * Need a hosting solution that scales
 * Content Delivery network for a global audience (CF)
+* Optimized page load
+
+!SLIDE
+# Lots of sources
+![Source files of W14g](w14g-sources.png)
 
 <p class="notes">
-TODO: insert screenshot of resource view or similar to show the number of JS
-files involved.
-
 Been my first actual JS app, not just some behavior sprinkled on top of views.
 Had to think about structuring the code.
 </p>
@@ -53,7 +55,7 @@ Had to think about structuring the code.
 # Solving the asset problem, take one
 * Middleman <https://github.com/tdreyno/middleman>
 * Jammit <http://documentcloud.github.com/jammit/>
-* Custom Development and build environments
+* Custom development and build environments
 * Manual asset management + cache invalidation
 
 <p class="notes">

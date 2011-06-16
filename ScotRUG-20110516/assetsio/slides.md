@@ -1,5 +1,4 @@
 !SLIDE assetsio_1 light-on-dark
-# Enter Assets.io
 ![background](assetsio_1.jpg "Assets.io")
 
 !SLIDE bullets
@@ -12,7 +11,6 @@
 * deliver through Content Delivery Network
 
 !SLIDE smaller light-on-dark dr-evil
-# What if we could make this just work?<br>As in EASY!
 ![background](dr-evil.jpg)
 
 !SLIDE light-on-dark

@@ -13,14 +13,18 @@
 
 !SLIDE smaller light-on-dark dr-evil
 # What if we could make this just work?<br>As in EASY!
-![background](dr-evil.jpg "Dr. Evil")
+![background](dr-evil.jpg)
+
+!SLIDE light-on-dark
+# Conclave in my rural office
+![background](rural-office.jpg)
 
 !SLIDE
-# Right, but what would that look like?
+# We came back with this cunning plan
 ![Assets.io :: How it works](howitworks.png)
 
 !SLIDE subsection
-# Let's start in the browser
+# Let's start the tour in the browser
 
 !SLIDE
 # How to integrate
@@ -137,6 +141,7 @@ JSON offers very good flexibility and future extensibility
           it 'should set the account', ->
             assets.account('an-account')
             expect(assets.settings.account).toEqual 'an-account'
+* (that had to be said)
 
 
 !SLIDE subsection
@@ -174,33 +179,6 @@ JSON offers very good flexibility and future extensibility
     <http://rainbows.rubyforge.org/>
 
 !SLIDE
-# Parallel asset fetching
-## em-http-request
-    @@@ ruby
-    multi = EM::MultiRequest.new
-
-    # add multiple requests to the multi-handler
-    multi.add(:a, EM::HttpRequest.new('http://www.google.com/').get)
-    multi.add(:b, EM::HttpRequest.new('http://www.yahoo.com/').get)
-
-    multi.callback {
-      # all requests have completed at this point
-
-      EM.stop
-    }
-
-* Alternate approach: em-synchrony<br>(using Ruby 1.9 fibers)
-  <https://github.com/igrigorik/em-synchrony>
-
-!SLIDE bullets
-# Processing
-* Minification
-  - JS: Uglifier
-  - CSS: Rainpress
-* Url rewriting (CSS)
-* Wrapping
-
-!SLIDE
 # Async Response
 ## throw :async
     @@@ ruby
@@ -215,6 +193,30 @@ JSON offers very good flexibility and future extensibility
 * dummy Rack response: `[-1, {}, []]`
 * thin_async wrapper <https://github.com/macournoyer/thin_async>
 
+!SLIDE
+# Parallel asset fetching
+## em-http-request
+    @@@ ruby
+    multi = EM::MultiRequest.new
+
+    # add multiple requests to the multi-handler
+    multi.add(:a, EM::HttpRequest.new('http://www.google.com/').get)
+    multi.add(:b, EM::HttpRequest.new('http://www.yahoo.com/').get)
+
+    multi.callback {
+      # all requests have completed at this point
+    }
+
+* Alternate approach: em-synchrony<br>(using Ruby 1.9 fibers)
+  <https://github.com/igrigorik/em-synchrony>
+
+!SLIDE bullets
+# Processing
+* Minification
+  - JS: Uglifier
+  - CSS: Rainpress
+* Url rewriting (CSS)
+* Wrapping
 
 !SLIDE bullets
 # What's next?

@@ -221,6 +221,6 @@ JSON offers very good flexibility and future extensibility
 * Work in progress
   - Integration into Rails 3.1 asset pipeline
     <https://github.com/assets-io/assetsio-rails>
-* Closed Beta from 4 July 2011
+* Closed Beta from July 4, 2011
 * Coming soon
   - Image optimization & CSS sprites

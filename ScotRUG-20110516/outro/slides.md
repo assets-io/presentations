@@ -1,11 +1,9 @@
-!SLIDE subsection
-# Wrapping up
-
 !SLIDE bullets incremental
 # Wrapping up
 * Was a lot more challenging than it looked at first glance
 * Working prototype < 20% effort, but...
-* Addressable is grand (+) -- Ruby's high level abstractions
+* Ruby's high level abstractions yield pleasant surprises
+  - like Addressable's **+** method
 * CoffeeScript makes JS bearable for Rubyists (probably also for Erlang, Scala
   and Python geeks)
 * Totally worth it: already rewarding - go out and make stuff

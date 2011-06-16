@@ -1,18 +1,18 @@
 !SLIDE subsection center
 # W14g
 
-!SLIDE incremental
+!SLIDE
 # So what is W14g?
 * Webapp built on top of the Twitter API
 * Data visualization experiment
 * Learning project
-* 100% Buzzword compliant
+* 100% buzzword compliant
 
-!SLIDE incremental
+!SLIDE
 # JavaScript *App*
 * Based on *Backbone.js* (Single page JS App)
-* Written entirely in *Coffeescript*
-* *HTML5* / *CSS3* Animations
+* Written entirely in *CoffeeScript*
+* *HTML5* / *CSS3* animations
 
 !SLIDE subsection center
 # Demo
@@ -23,14 +23,14 @@ Do a fun demo. Show a few nice selections. Tweet along.
 </p>
 
 !SLIDE light-on-dark
-# Figured: This could go viral!
+# Figured: This could go viral
 ![background](screaming-beatles-fans.jpg)
 
-!SLIDE incremental
+!SLIDE
 # What if I built it and they come?
-## ZOMG PERFORMANCE MATTERS
+## zOMG PERFORMANCE MATTERS
 * Need a hosting solution that scales
-* Content Delivery network for a global audience (CF)
+* Content Delivery Network for a global audience (CF)
 * Optimized page load
 
 !SLIDE
@@ -51,7 +51,7 @@ Had to think about structuring the code.
   - minification and gzip compression
 * Fast delivery via CDN
 
-!SLIDE incremental
+!SLIDE bullets
 # Solving the asset problem, take one
 * Middleman <https://github.com/tdreyno/middleman>
 * Jammit <http://documentcloud.github.com/jammit/>

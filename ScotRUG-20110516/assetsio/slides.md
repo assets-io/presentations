@@ -2,7 +2,7 @@
 # Enter Assets.io
 ![background](assetsio_1.jpg "Assets.io")
 
-!SLIDE incremental
+!SLIDE bullets
 # The birth of Assets.io
 ## Idea for a service that would...
 * minify and package automatically
@@ -37,7 +37,6 @@
       <script src="/js/jquery.js"></script>
       <script src="/js/plugin.js"></script>
       <script src="/js/site.js"></script>
-
     </head>
 
 !SLIDE incremental
@@ -51,6 +50,7 @@
 
       <script>
         assets.account('your-account-id');
+        assets.on('example.org');
 
         <!-- Stylesheets -->
         assets.css('/css/base.css /css/navigation.css');
@@ -58,7 +58,6 @@
         <!-- Javascript -->
         assets.js('/js/jquery.js /js/plugin.js /js/site.js');
       </script>
-
     </head>
 * dynamic insertion of tags via loader API
 * packages defined *within* source code
@@ -118,9 +117,38 @@ JSON offers very good flexibility and future extensibility
 * if not, issue individual requests for each part
   - slower, but no broken site
 
+!SLIDE
+# BTW, Jasmine specs written in CoffeeScript are a thing of beauty!
+    @@@ javascript
+    describe 'API', ->
+      it 'should define the global assets object', ->
+        expect(window.assets).toBeDefined()
+
+      describe 'changing default settings', ->
+        beforeEach ->
+          @defaultSettings = {}
+          for own setting, value of assets.settings
+            @defaultSettings[setting] = value
+
+        afterEach ->
+          assets.settings = @defaultSettings
+
+        describe '#account', ->
+          it 'should set the account', ->
+            assets.account('an-account')
+            expect(assets.settings.account).toEqual 'an-account'
+
+
 !SLIDE subsection
 # In da Cloud
+
 <!-- TODO: maybe we can describe the hosting setup here... -->
+!SLIDE
+# Amazon Web Services
+* Cloudfront
+* EC2
+* ELB
+* Auto-Scaling Groups FTW
 
 !SLIDE subsection
 # Teh Backend: Ruby time
@@ -135,45 +163,64 @@ JSON offers very good flexibility and future extensibility
 * Take on new requests while waiting for the assets
 * Parallelize fetching from customer's server
 
-!SLIDE
+!SLIDE bullets
 # Evented Web App servers
-* Looked at various alternatives
-  - Goliath
-  - Rainbows
-  - Good old Thin
-* Settled for Thin (then with Heroku as possible hosting environment in mind)
-<!-- show code, how does it look in Goliath/em-synchrony vs. Thin -->
+* Good old Thin
+  - already uses EventMachine reactor loop
+* Alternate approaches
+  - Goliath (uses Ruby 1.9 fibers)
+    <https://github.com/postrank-labs/goliath>
+  - Rainbows (supports multiple concurrency models)
+    <http://rainbows.rubyforge.org/>
 
 !SLIDE
 # Parallel asset fetching
-* em-synchrony
-* em-http-request (contributed em-synchrony like interface)
+## em-http-request
+    @@@ ruby
+    multi = EM::MultiRequest.new
 
-!SLIDE
+    # add multiple requests to the multi-handler
+    multi.add(:a, EM::HttpRequest.new('http://www.google.com/').get)
+    multi.add(:b, EM::HttpRequest.new('http://www.yahoo.com/').get)
+
+    multi.callback {
+      # all requests have completed at this point
+
+      EM.stop
+    }
+
+* Alternate approach: em-synchrony<br>(using Ruby 1.9 fibers)
+  <https://github.com/igrigorik/em-synchrony>
+
+!SLIDE bullets
 # Processing
-* Minification (JS: Uglifier, CSS: Rainpress)
+* Minification
+  - JS: Uglifier
+  - CSS: Rainpress
+* Url rewriting (CSS)
 * Wrapping
-* Url rewriting (-> Addressable!!!)
-
-## Hurdle#6: Images in CSS -- path is broken
-* Solution: Rewrite CSS url paths
 
 !SLIDE
 # Async Response
-* throw vs. dummy response
-* research: AsyncResponse class (seen in @methodmissings's talk @ Euruko)
-<!-- show code -->
+## throw :async
+    @@@ ruby
+    def call(env)
+      request = RequestParser.new(env).request
 
-!SLIDE
-# Hosting
-* Amazon
-  - Cloudfront
-  - EC2
-  - ELB
-  - Auto-Scaling
+      Response.new(request, env['async.callback']).process
+      throw :async
+    end
 
-!SLIDE
+## Alternate approaches
+* dummy Rack response: `[-1, {}, []]`
+* thin_async wrapper <https://github.com/macournoyer/thin_async>
+
+
+!SLIDE bullets
 # What's next?
-* Integration into Rails 3.1 asset pipeline
-* Images (Image optimization)
-* CSS sprites
+* Work in progress
+  - Integration into Rails 3.1 asset pipeline
+    <https://github.com/assets-io/assetsio-rails>
+* Closed Beta from 4 July 2011
+* Coming soon
+  - Image optimization & CSS sprites

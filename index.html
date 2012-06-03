@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title></title>
+  <title>Lessons Learned Building Assets.io</title>
 
   <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
   <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
@@ -29,12 +29,16 @@
   <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
 
   
+    <link rel="stylesheet" href="file/style.css" type="text/css"/>
+  
 
+  
+    <script type="text/javascript" src="file/scripts.js"></script>
   
 
   <script type="text/javascript">
   $(function(){
-    setupPreso(true, './');
+    setupPreso(false, './');
   });
   </script>
 </head>
@@ -70,8 +74,483 @@
   <span id="notesInfo"></span>
 </div>
 
-<div id="slides" class="offscreen" >
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="intro/slides/1">
+<h1>Lessons Learned Building Assets.io</h1>
+
+<h2>Martin Rehfeld aka @klickmich</h2>
+
+<h2>16/05/2011 @ ScotRUG, Edinburgh</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/slides/2">
+<h1>Three Premieres</h1>
+
+<ul>
+<li>First time speaker exchange</li>
+<li>W14g</li>
+<li>Assets.io</li>
+</ul>
 </div>
+</div><div class="slide" data-transition="none"><div class="content light-on-dark" ref="intro/slides/3">
+<h1>Ruby User Group Berlin greets ScotRUG</h1>
+
+<p><img src="./file/intro/rug_b.jpg" title="The Ruby User Group Berlin" alt="background"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content subsection center" ref="w14g/slides/1">
+<h1>W14g</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="w14g/slides/2">
+<h1>So what is W14g?</h1>
+
+<ul>
+<li>Webapp built on top of the Twitter API</li>
+<li>Data visualization experiment</li>
+<li>Learning project</li>
+<li>100% buzzword compliant</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="w14g/slides/3">
+<h1>JavaScript <em>App</em></h1>
+
+<ul>
+<li>Based on <em>Backbone.js</em> (Single page JS App)</li>
+<li>Written entirely in <em>CoffeeScript</em></li>
+<li><em>HTML5</em> / <em>CSS3</em> animations</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection center" ref="w14g/slides/4">
+<h1>Demo</h1>
+
+<p><a href="http://www.w14g.com">http://www.w14g.com</a></p>
+
+<p class="notes">
+Do a fun demo. Show a few nice selections. Tweet along.
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content light-on-dark" ref="w14g/slides/5">
+<h1>Figured: This could go viral</h1>
+
+<p><img src="./file/w14g/screaming-beatles-fans.jpg" alt="background"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="w14g/slides/6">
+<h1>What if I built it and they come?</h1>
+
+<h2>zOMG PERFORMANCE MATTERS</h2>
+
+<ul>
+<li>Need a hosting solution that scales</li>
+<li>Content Delivery Network for a global audience (CF)</li>
+<li>Optimized page load</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="w14g/slides/7">
+<h1>Lots of sources</h1>
+
+<p><img src="./file/w14g/w14g-sources.png" alt="Source files of W14g"/></p>
+
+<p class="notes">
+Been my first actual JS app, not just some behavior sprinkled on top of views.
+Had to think about structuring the code.
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="w14g/slides/8">
+<h1>Aside: Web Performance 101</h1>
+
+<ul>
+<li>Fewer requests through packaging (concatenation)</li>
+<li>Save requests completely by proper caching
+
+<ul>
+<li>it's in the headers</li>
+</ul>
+</li>
+<li>Smaller assets save bandwidth
+
+<ul>
+<li>minification and gzip compression</li>
+</ul>
+</li>
+<li>Fast delivery via CDN</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="w14g/slides/9">
+<h1>Solving the asset problem, take one</h1>
+
+<ul>
+<li>Middleman <a href="https://github.com/tdreyno/middleman">https://github.com/tdreyno/middleman</a></li>
+<li>Jammit <a href="http://documentcloud.github.com/jammit/">http://documentcloud.github.com/jammit/</a></li>
+<li>Custom development and build environments</li>
+<li>Manual asset management + cache invalidation</li>
+</ul>
+
+
+<p class="notes">
+* How many of you have used asset packaging solutions with their Rails
+  projects?
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content light-on-dark effort" ref="w14g/slides/10">
+<h1>Feels like...</h1>
+
+<p><img src="./file/w14g/effort.jpg" title="Lots of effort" alt="background"/></p>
+
+<h3><a href="http://www.flickr.com/photos/unices/4022007384/">http://www.flickr.com/photos/unices/4022007384/</a></h3>
+
+<p class="notes">
+Works nice, but was a lot of effort to get to this point.
+
+Asset management is still hard, so hard that you usually don't do it unless
+you absolutely have to. Rails' asset pipeline will be a game changer, though
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content assetsio_1 light-on-dark" ref="assetsio/slides/1">
+<p><img src="./file/assetsio/assetsio_1.jpg" title="Assets.io" alt="background"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="assetsio/slides/2">
+<h1>The birth of Assets.io</h1>
+
+<h2>Idea for a service that would...</h2>
+
+<ul>
+<li>minify and package automatically</li>
+<li>provide easy cache busting</li>
+<li>send long expires headers</li>
+<li>offer gzip compression</li>
+<li>deliver through Content Delivery Network</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller light-on-dark dr-evil" ref="assetsio/slides/3">
+<p><img src="./file/assetsio/dr-evil.jpg" alt="background"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content light-on-dark" ref="assetsio/slides/4">
+<h1>Conclave in my rural office</h1>
+
+<p><img src="./file/assetsio/rural-office.jpg" alt="background"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/5">
+<h1>We came back with this cunning plan</h1>
+
+<p><img src="./file/assetsio/howitworks.png" alt="Assets.io :: How it works"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="assetsio/slides/6">
+<h1>Let's start the tour in the browser</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/7">
+<h1>How to integrate</h1>
+
+<h2>a typical website head</h2>
+
+<pre class="sh_html"><code>&lt;head&gt;
+  &lt;title&gt;My website&lt;/title&gt;
+
+  &lt;!-- Stylesheets --&gt;
+  &lt;link rel="stylesheet" href="/css/base.css"&gt;
+  &lt;link rel="stylesheet" href="/css/navigation.css"&gt;
+
+  &lt;!-- Javascript --&gt;
+  &lt;script src="/js/jquery.js"&gt;&lt;/script&gt;
+  &lt;script src="/js/plugin.js"&gt;&lt;/script&gt;
+  &lt;script src="/js/site.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content incremental" ref="assetsio/slides/8">
+<h1>How to integrate</h1>
+
+<h2>rewritten to use Assets.io</h2>
+
+<pre class="sh_html"><code>&lt;head&gt;
+  &lt;title&gt;My website&lt;/title&gt;
+
+  &lt;script src="http://api.assets.io/b6/"&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    assets.account('your-account-id');
+    assets.on('example.org');
+
+    &lt;!-- Stylesheets --&gt;
+    assets.css('/css/base.css /css/navigation.css');
+
+    &lt;!-- Javascript --&gt;
+    assets.js('/js/jquery.js /js/plugin.js /js/site.js');
+  &lt;/script&gt;
+&lt;/head&gt;</code></pre>
+
+<ul>
+<li>dynamic insertion of tags via loader API</li>
+<li>packages defined <em>within</em> source code</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental" ref="assetsio/slides/9">
+<h1>Here's what gets loaded</h1>
+
+<pre><code>http://your-account-id.cloudfront.net/eyJyIjoiYjYiLCJhIjoieW91 \
+      ci1hY2NvdW50LWlkIiwiaCI6IiIsInMiOlsiaHR0cDovL2V4YW1wbGUu \
+      b3JnL2Nzcy9iYXNlLmNzcyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jc3Mv \
+      bmF2aWdhdGlvbi5jc3MiXX0=.css
+
+http://your-account-id.cloudfront.net/eyJyIjoiYjYiLCJhIjoieW91 \
+      ci1hY2NvdW50LWlkIiwiaCI6IiIsInMiOlsiaHR0cDovL2V4YW1wbGUu \
+      b3JnL2pzL2pxdWVyeS5qcyIsImh0dHA6Ly9leGFtcGxlLm9yZy9qcy9w \
+      bHVnaW4uanMiLCJodHRwOi8vZXhhbXBsZS5vcmcvanMvc2l0ZS5qcyJd \
+      fQ==.js
+</code></pre>
+
+<ul>
+<li>request to Amazon's CloudFront CDN</li>
+<li>the gibberish is Base64 encoded JSON</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="assetsio/slides/10">
+<h1>JSON asset request</h1>
+
+<pre class="sh_javascript"><code>{
+  "r": "b6",               // API release
+  "a": "your-account-id",  // CF distribution
+  "s": [                   // FQDN sources
+    "http://example.org/css/base.css",
+    "http://example.org/css/navigation.css"
+  ]
+}</code></pre>
+
+<ul>
+<li>note: CloudFront ignores any URL query strings</li>
+<li>thus this information had be encoded into the path!</li>
+<li>it is the operating instruction for the backend</li>
+</ul>
+
+
+<p class="notes">
+JSON offers very good flexibility and future extensibility
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/11">
+<h1>What about cache busting?</h1>
+
+<h2>assign a version globally (think: Git SHA)</h2>
+
+<pre><code>assets.version('6091d765');
+</code></pre>
+
+<h2>or per asset package</h2>
+
+<pre><code>assets.js('/js/whatever.js', {version: 1});
+</code></pre>
+
+<ul>
+<li>changing the version immediately busts the cache</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental" ref="assetsio/slides/12">
+<h1>Next challenge: Fallback</h1>
+
+<pre><code>As a user of Assets.io
+When anything goes wrong on their end
+I still want to have a working website
+</code></pre>
+
+<ul>
+<li>the JS API needs to check if the assets arrived
+
+<ul>
+<li>timeout!</li>
+</ul>
+</li>
+<li>if not, issue individual requests for each part
+
+<ul>
+<li>slower, but no broken site</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/13">
+<h1>BTW, Jasmine specs written in CoffeeScript are a thing of beauty!</h1>
+
+<pre class="sh_javascript"><code>describe 'API', -&gt;
+  it 'should define the global assets object', -&gt;
+    expect(window.assets).toBeDefined()
+
+  describe 'changing default settings', -&gt;
+    beforeEach -&gt;
+      @defaultSettings = {}
+      for own setting, value of assets.settings
+        @defaultSettings[setting] = value
+
+    afterEach -&gt;
+      assets.settings = @defaultSettings
+
+    describe '#account', -&gt;
+      it 'should set the account', -&gt;
+        assets.account('an-account')
+        expect(assets.settings.account).toEqual 'an-account'</code></pre>
+
+<ul>
+<li>(that had to be said)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="assetsio/slides/14">
+<h1>In da Cloud</h1>
+
+<!-- TODO: maybe we can describe the hosting setup here... -->
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/15">
+<h1>Amazon Web Services</h1>
+
+<ul>
+<li>Cloudfront</li>
+<li>EC2</li>
+<li>ELB</li>
+<li>Auto-Scaling Groups FTW</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="assetsio/slides/16">
+<h1>Teh Backend: Ruby time</h1></div>
+</div><div class="slide" data-transition="none"><div class="content request-flow bullets" ref="assetsio/slides/17">
+<h1>Request Flow &amp; Timing</h1>
+
+<p><img src="./file/assetsio/request-flow.png" alt="Request Flow"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/18">
+<h1>Two sides for maximizing throughput</h1>
+
+<ul>
+<li>Take on new requests while waiting for the assets</li>
+<li>Parallelize fetching from customer's server</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="assetsio/slides/19">
+<h1>Evented Web App servers</h1>
+
+<ul>
+<li>Good old Thin
+
+<ul>
+<li>already uses EventMachine reactor loop</li>
+</ul>
+</li>
+<li>Alternate approaches
+
+<ul>
+<li>Goliath (uses Ruby 1.9 fibers)
+<a href="https://github.com/postrank-labs/goliath">https://github.com/postrank-labs/goliath</a></li>
+<li>Rainbows (supports multiple concurrency models)
+<a href="http://rainbows.rubyforge.org/">http://rainbows.rubyforge.org/</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/20">
+<h1>Async Response</h1>
+
+<h2>throw :async</h2>
+
+<pre class="sh_ruby"><code>def call(env)
+  request = RequestParser.new(env).request
+
+  Response.new(request, env['async.callback']).process
+  throw :async
+end</code></pre>
+
+<h2>Alternate approaches</h2>
+
+<ul>
+<li>dummy Rack response: <code>[-1, {}, []]</code></li>
+<li>thin_async wrapper <a href="https://github.com/macournoyer/thin_async">https://github.com/macournoyer/thin_async</a></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="assetsio/slides/21">
+<h1>Parallel asset fetching</h1>
+
+<h2>em-http-request</h2>
+
+<pre class="sh_ruby"><code>multi = EM::MultiRequest.new
+
+# add multiple requests to the multi-handler
+multi.add(:a, EM::HttpRequest.new('http://www.google.com/').get)
+multi.add(:b, EM::HttpRequest.new('http://www.yahoo.com/').get)
+
+multi.callback {
+  # all requests have completed at this point
+}</code></pre>
+
+<ul>
+<li>Alternate approach: em-synchrony<br>(using Ruby 1.9 fibers)
+<a href="https://github.com/igrigorik/em-synchrony">https://github.com/igrigorik/em-synchrony</a></br>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="assetsio/slides/22">
+<h1>Processing</h1>
+
+<ul>
+<li>Minification
+
+<ul>
+<li>JS: Uglifier</li>
+<li>CSS: Rainpress</li>
+</ul>
+</li>
+<li>Url rewriting (CSS)</li>
+<li>Wrapping</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="assetsio/slides/23">
+<h1>What's next?</h1>
+
+<ul>
+<li>Work in progress
+
+<ul>
+<li>Integration into Rails 3.1 asset pipeline
+<a href="https://github.com/assets-io/assetsio-rails">https://github.com/assets-io/assetsio-rails</a></li>
+</ul>
+</li>
+<li>Closed Beta from July 4, 2011</li>
+<li>Coming soon
+
+<ul>
+<li>Image optimization &amp; CSS sprites</li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="outro/slides/1">
+<h1>Wrapping up</h1>
+
+<ul>
+<li>Was a lot more challenging than it looked at first glance</li>
+<li>Working prototype &lt; 20% effort, but...</li>
+<li>Ruby's high level abstractions yield pleasant surprises
+
+<ul>
+<li>like Addressable's <strong>+</strong> method</li>
+</ul>
+</li>
+<li>CoffeeScript makes JS bearable for Rubyists (probably also for Erlang, Scala
+and Python geeks)</li>
+<li>Totally worth it: already rewarding - go out and make stuff</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="outro/slides/2">
+<h1>The End I</h1>
+
+<h2>Beta invites</h2>
+
+<p class="notes">
+Closed Beta: at no cost, l8r "plans"
+
+We need beta testers
+Would you use it? (Why not?)
+Any pointers to people we absolutely need to speak to? (potential customers or
+other)
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="outro/slides/3">
+<h1>The End II</h1>
+
+<h2>Q &amp; A</h2>
+
+<p>Martin Rehfeld</p>
+
+<p>@klickmich</p>
+
+<p><a href="http://www.w14g.com">http://www.w14g.com</a></p>
+
+<p><a href="http://www.assets.io">http://www.assets.io</a></p>
+
+<p>Please rate this talk - I need your feedback!<br>
+<a href="http://spkr8.com/t/7771">http://spkr8.com/t/7771</a></br></p>
+</div>
+</div></div>
 
 </body>
 </html>

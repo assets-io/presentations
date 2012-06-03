@@ -156,10 +156,9 @@ JSON offers very good flexibility and future extensibility
 !SLIDE subsection
 # Teh Backend: Ruby time
 
-!SLIDE request-flow
+!SLIDE request-flow bullets
 # Request Flow & Timing
 ![Request Flow](request-flow.png)
-<!-- TODO: while an image is nice, it does not add much value here -->
 
 !SLIDE
 # Two sides for maximizing throughput

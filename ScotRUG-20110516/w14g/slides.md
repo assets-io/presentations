@@ -33,7 +33,7 @@ Do a fun demo. Show a few nice selections. Tweet along.
 * Content Delivery Network for a global audience (CF)
 * Optimized page load
 
-!SLIDE
+!SLIDE bullets
 # Lots of sources
 ![Source files of W14g](w14g-sources.png)
 
